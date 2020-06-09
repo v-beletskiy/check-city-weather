@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# City Weather App
 
-## Available Scripts
+Simple and hussle-free weather check service designed to leverage from minimalistic style.
+Just enter name of the city of your interest and check current weather.
 
-In the project directory, you can run:
+Give it a try! [Follow the link]()
 
-### `npm start`
+## How to run the app locally?
+- Add .env file with environment variables (``REACT_APP_OPEN_WEATHER_API_KEY``, ``REACT_APP_OPENCAGE_API_KEY``) to the root folder (not committed to the repository).
+``https://opencagedata.com`` service is used to retrieve city name by coordinates and vice versa.
+- Run npm i to install all the packages.
+- Run npm run start
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## App features
+- Two routes only are available: ``/`` and ``/city/:name``. The last one is protected by city data existence at store check.
+- The user is asked to grant access for geolocation on first visit.
+If so, current location weather is shown (if found). City name is retrieved by lat and lng coordinates.
+- Modal is shown on incorrect city name input.
+- All the stored cities' weather is updated on initial load.
+- There's a possibility either to update stored city weather or to remove it.
+- Cloudiness icon is located next to city name. Its' appearance depends on current cloudiness value.
+- Rain or snow icon is displayed if present only.
+- There's a temperature widget located at detailed city weather info page. Hourly forecast is used (number of items varies depending on current time).
+Each item is positioned and coloured according to its value.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Project file structure
+- App.js - core component. All the routes are mapped here. Redux store and MUI theme connection are handled here as well.
+- Redux actions are located at ``/src/actions``. Single reducer (appReducer) is located at ``/src/reducers``.
+Store persisting logic on reload belongs to ``/src/store/store.js`` file.
+- There're 2 pages at the app (main page - ``Index`` and detailed city weather info - ``City``). They're located at ``/src/pages``.
+- Other components may be found at ``/src/components``.
+- 3d party APIs are handled at ``/src/services``.
+- There're 2 types of utils: common (``/src/utils/utils``) and project logic specific ones (``/src/utils/appUtils``).
+- ``/src/styles`` folder contains resetting styles and MUI theme initialization.
