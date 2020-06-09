@@ -3,13 +3,13 @@
 Simple and hussle-free weather check service designed to leverage from minimalistic style.
 Just enter name of the city of your interest and check current weather.
 
-Give it a try! [Follow the link]()
+Give it a try! [Follow the link](https://check-city-weather.herokuapp.com)
 
 ## How to run the app locally?
 - Add .env file with environment variables (``REACT_APP_OPEN_WEATHER_API_KEY``, ``REACT_APP_OPENCAGE_API_KEY``) to the root folder (not committed to the repository).
 ``https://opencagedata.com`` service is used to retrieve city name by coordinates and vice versa.
 - Run npm i to install all the packages.
-- Run npm run start
+- Run npm run dev
 
 ## App features
 - Two routes only are available: ``/`` and ``/city/:name``. The last one is protected by city data existence at store check.
