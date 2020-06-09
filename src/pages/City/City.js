@@ -26,7 +26,7 @@ const useStyles = makeStyles({
 });
 
 function City() {
-  const pathname = window.location.pathname;
+  const pathname = decodeURI(window.location.pathname);
   const lastSlugPart = Utils.getLastSLugPart(pathname);
   const classes = useStyles();
   const hourlyCityTemp = useSelector((state) => state.app.hourlyCityTemp);

@@ -12,7 +12,7 @@ import City from "./pages/City/City";
 import Header from "./components/Header/Header";
 
 const checkIfCityExists = () => {
-  const pathname = window.location.pathname;
+  const pathname = decodeURI(window.location.pathname);
   const lastSlugPart = Utils.getLastSLugPart(pathname);
   const state = store.getState();
   return state.app.cities.some((city) => city.cityName.includes(lastSlugPart));
